@@ -130,6 +130,14 @@ function escape() {
 	fi;
 }
 
+#Generate a random sequence of characters with given length (default to 12)
+function pwgen() {
+  set +o history
+  LC_ALL=C tr -dc 'a-zA-Z0-9_@!&*^%#:;,.\/?<>-+=' < /dev/urandom | fold -w ${1:-12} | head -n 1
+  set -o history
+}
+
+
 # Show all the names (CNs and SANs) listed in the SSL certificate
 # for a given domain
 function getcertnames() {
