@@ -5,6 +5,19 @@ function mkd() {
 	mkdir -p "$@" && cd "$_";
 }
 
+# Remove a given directory
+function rmd() {
+  if test -z "$1"; then
+    echo "Provide a directory to remove.";
+    exit 1;
+  elif test ! -d "$1"; then
+    echo "$1 is not a directory.";
+    exit 1;
+  fi;
+
+  rm -rf "$1";
+}
+
 # Change working directory to the top-most Finder window location
 function cdf() { # short for `cdfinder`
 	cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')";
