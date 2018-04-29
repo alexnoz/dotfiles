@@ -13,7 +13,19 @@ alias d="cd ~/Documents/Dropbox"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias p="cd ~/projects"
+
+# Git aliases
 alias g="git"
+alias gl="git log --pretty=oneline -n 20 --graph --abbrev-commit"
+alias gs="git status -s"
+alias ggo="f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
+alias gd="git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+alias gdi="d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
+alias gcl="git clone --recursive"
+alias gp="git pull; git submodule foreach git pull origin master"
+alias greb="r() { git rebase -i HEAD~$1; }; r"
+alias gdm="git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+alias gamd="git commit --amend --reuse-message=HEAD"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
