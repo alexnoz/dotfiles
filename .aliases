@@ -16,6 +16,9 @@ alias p="cd ~/projects"
 
 # Git aliases
 alias g="git"
+alias guns="git reset HEAD --"
+alias ga="git add"
+alias gdc="git diff --cached"
 alias gl="git log --pretty=oneline -n 20 --graph --abbrev-commit"
 alias gs="git status -s"
 alias ggo="f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
