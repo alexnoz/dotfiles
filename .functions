@@ -254,3 +254,11 @@ function gund() {
   git reset --soft HEAD$back
   git reset
 }
+
+function gv() {
+  commit=HEAD
+
+  test ! -z "$1" > /dev/null 2>&1 && commit="$1"
+
+  git diff "$commit"^!
+}
